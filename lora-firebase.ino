@@ -49,9 +49,6 @@ FuzzySet *awas = new FuzzySet(70,80,90,100);
 #include "2_fuzzy_set.h"
 #include "3_fuzzy_rule.h"
 
-// 
-
-
 
 //Sensor 
 #define raindigital 25 // Sensor hujan
@@ -207,6 +204,8 @@ void setup() {
 
   fuzzySet();
   fuzzyRule();
+
+  // ---------------------- Divider ------- //
   
   Serial.println("");
   delay(100);
