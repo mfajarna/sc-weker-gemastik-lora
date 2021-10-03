@@ -4,9 +4,9 @@ void fuzzySet () {
   // FuzzyInput Kemiringan Tanah
   FuzzyInput *kemiringan_tanah = new FuzzyInput(1);
 
-  suhu->addFuzzySet(datar_landai);
-  suhu->addFuzzySet(agak_curam);
-  suhu->addFuzzySet(sangat_curam);
+  kemiringan_tanah->addFuzzySet(datar_landai);
+  kemiringan_tanah->addFuzzySet(agak_curam);
+  kemiringan_tanah->addFuzzySet(sangat_curam);
   
   fuzzy->addFuzzyInput(kemiringan_tanah);
 
@@ -15,9 +15,9 @@ void fuzzySet () {
   // FuzzyInput KELEMBABAN
   FuzzyInput *kelembaban_tanah = new FuzzyInput(2);
 
-  kelembaban->addFuzzySet(kering);
-  kelembaban->addFuzzySet(lembab);
-  kelembaban->addFuzzySet(basah);
+  kelembaban_tanah->addFuzzySet(kering);
+  kelembaban_tanah->addFuzzySet(lembab);
+  kelembaban_tanah->addFuzzySet(basah);
 
   fuzzy->addFuzzyInput(kelembaban_tanah);
 
@@ -26,18 +26,18 @@ void fuzzySet () {
   // FuzzyInput Pergeseran Tanah
   FuzzyInput *pergeseran_tanah = new FuzzyInput(3);
 
-  cahaya->addFuzzySet(ringan);
-  cahaya->addFuzzySet(normal);
-  cahaya->addFuzzySet(extreme);
+  pergeseran_tanah->addFuzzySet(ringan);
+  pergeseran_tanah->addFuzzySet(normal);
+  pergeseran_tanah->addFuzzySet(extreme);
   fuzzy->addFuzzyInput(pergeseran_tanah);
 
   
   // FuzzyInput Curah Hujan
   FuzzyInput *curah_hujan = new FuzzyInput(4);
 
-  cahaya->addFuzzySet(cerah_ringan);
-  cahaya->addFuzzySet(sedang);
-  cahaya->addFuzzySet(lebat_sangatlebat);
+  curah_hujan->addFuzzySet(cerah_ringan);
+  curah_hujan->addFuzzySet(sedang);
+  curah_hujan->addFuzzySet(lebat_sangatlebat);
   
   fuzzy->addFuzzyInput(curah_hujan);
 
@@ -46,9 +46,9 @@ void fuzzySet () {
   // FuzzyOutput Status Bencana
   FuzzyOutput *status_bencana = new FuzzyOutput(1);
 
-  pompa->addFuzzySet(aman);
-  pompa->addFuzzySet(waspada);
-  pompa->addFuzzySet(awas);
+  status_bencana->addFuzzySet(aman);
+  status_bencana->addFuzzySet(waspada);
+  status_bencana->addFuzzySet(awas);
 
   fuzzy->addFuzzyOutput(status_bencana);
 
