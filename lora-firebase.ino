@@ -12,8 +12,8 @@
 
 #define FIREBASE_HOST "mitigasi-8e083-default-rtdb.firebaseio.com/"
 #define FIREBASE_AUTH "k1GYmcDzeZW76OOEW4NjV8nZkQlQTfugEzgoDmUk"
-#define WIFI_SSID "iPhone 6"
-#define WIFI_PASSWORD "qwertyuiop"
+#define WIFI_SSID "YOUR SSID"
+#define WIFI_PASSWORD "PASSWORD"
 
 
 // Deklarasi Fuzzy
