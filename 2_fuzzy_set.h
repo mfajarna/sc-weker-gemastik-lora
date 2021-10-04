@@ -24,12 +24,12 @@ void fuzzySet () {
 
 
   // FuzzyInput Pergeseran Tanah
-  FuzzyInput *pergeseran_tanah = new FuzzyInput(3);
+  FuzzyInput *pergeseran = new FuzzyInput(3);
 
-  pergeseran_tanah->addFuzzySet(ringan);
-  pergeseran_tanah->addFuzzySet(normal);
-  pergeseran_tanah->addFuzzySet(extreme);
-  fuzzy->addFuzzyInput(pergeseran_tanah);
+  pergeseran->addFuzzySet(ringan);
+  pergeseran->addFuzzySet(normal);
+  pergeseran->addFuzzySet(extreme);
+  fuzzy->addFuzzyInput(pergeseran);
 
   
   // FuzzyInput Curah Hujan
@@ -48,7 +48,7 @@ void fuzzySet () {
 
   status_bencana->addFuzzySet(aman);
   status_bencana->addFuzzySet(waspada);
-  status_bencana->addFuzzySet(awas);
+  status_bencana->addFuzzySet(bahaya);
 
   fuzzy->addFuzzyOutput(status_bencana);
 
