@@ -41,7 +41,7 @@ void fuzzyRule () {
 
 
   FuzzyRuleConsequent *bahaya_2 = new FuzzyRuleConsequent();
-  bahaya_2->addOutput(bahaya);
+  bahaya_2->addOutput(bahaya); // 
 
   FuzzyRule *fuzzyRule2 = new FuzzyRule(2, cerahRingan_agakCuram_basah_extreme_2, bahaya_2);
   fuzzy->addFuzzyRule(fuzzyRule2);
@@ -66,16 +66,16 @@ void fuzzyRule () {
   waspada_3->addOutput(waspada);
 
 
-  FuzzyRule *fuzzyRule3 = new FuzzyRule(3, cerahRingan_agakCuram_lembab_ringan_3, waspada_2);
+  FuzzyRule *fuzzyRule3 = new FuzzyRule(3, cerahRingan_agakCuram_lembab_ringan_3, waspada_3);
   fuzzy->addFuzzyRule(fuzzyRule3);
   
   // Building FuzzyRule////////////////////////////////////////////////////////////////// 4
 
   FuzzyRuleAntecedent *sangatLebat_sangatCuram_4 = new FuzzyRuleAntecedent();
-  sangatLebat_sangatCuram_4->joinWithAND(sangat_lebat, sangat_curam);
+  sangatLebat_sangatCuram_4->joinWithAND(lebat_sangatlebat, sangat_curam);
 
   FuzzyRuleAntecedent *lembab_4 = new FuzzyRuleAntecedent();
-  lembab_4->joinSingle(lembab)
+  lembab_4->joinSingle(lembab);
 
   
   FuzzyRuleAntecedent *sangatLebat_sangatCuram_lembab_4 = new FuzzyRuleAntecedent();
@@ -95,7 +95,53 @@ void fuzzyRule () {
   FuzzyRule *fuzzyRule4 = new FuzzyRule(4, sangatLebat_sangatCuram_extreme_4, bahaya_4);
   fuzzy->addFuzzyRule(fuzzyRule4);
   
-  
+  // Building FuzzyRule////////////////////////////////////////////////////////////////// 5
 
+  FuzzyRuleAntecedent *cerahRingan_datarLandai_5 = new FuzzyRuleAntecedent();
+  cerahRingan_datarLandai_5->joinWithAND(cerah_ringan, datar_landai);
+
+  FuzzyRuleAntecedent *kering_5 = new FuzzyRuleAntecedent();
+  kering_5->joinSingle(kering);
+
+  FuzzyRuleAntecedent *cerahRingan_datarLandai_kering_5 = new FuzzyRuleAntecedent();
+  cerahRingan_datarLandai_kering_5->joinWithAND(cerahRingan_datarLandai_5, kering_5);
+
+  FuzzyRuleAntecedent *ringan_5 = new FuzzyRuleAntecedent();
+  ringan_5->joinSingle(ringan);
+  
+  FuzzyRuleAntecedent *cerahRingan_datarLandai_kering_ringan_5 = new FuzzyRuleAntecedent();
+  cerahRingan_datarLandai_kering_ringan_5->joinWithAND(cerahRingan_datarLandai_kering_5, ringan_5);
+
+  FuzzyRuleConsequent *aman_5 = new FuzzyRuleConsequent();
+  aman_5->addOutput(aman);
+
+  FuzzyRule *fuzzyRule5 = new FuzzyRule(5, cerahRingan_datarLandai_kering_ringan_5, aman_5);
+  fuzzy->addFuzzyRule(fuzzyRule5);
+
+  // Building FuzzyRule////////////////////////////////////////////////////////////////// 6
+
+  FuzzyRuleAntecedent *sangatLebat_datarLandai_6 = new FuzzyRuleAntecedent();
+  sangatLebat_datarLandai_6->joinWithAND(lebat_sangatlebat, datar_landai);
+
+  FuzzyRuleAntecedent *kering_6 = new FuzzyRuleAntecedent();
+  kering_6->joinSingle(kering);
+
+  FuzzyRuleAntecedent *sangatLebat_datarLandai_kering_6 = new FuzzyRuleAntecedent();
+  sangatLebat_datarLandai_kering_6->joinWithAND(sangatLebat_datarLandai_6, kering_6);
+
+  FuzzyRuleAntecedent *normal_6 = new FuzzyRuleAntecedent();
+  normal_6->joinSingle(normal);
+
+  FuzzyRuleAntecedent *sangatLebat_datarLandai_kering_normal_6 = new FuzzyRuleAntecedent();
+  sangatLebat_datarLandai_kering_normal_6->joinWithAND(sangatLebat_datarLandai_kering_6, normal_6);
+  
+  FuzzyRuleConsequent *waspada_6 = new FuzzyRuleConsequent();
+  waspada_6->addOutput(waspada);
+
+  FuzzyRule *fuzzyRule6 = new FuzzyRule(6, sangatLebat_datarLandai_kering_normal_6, waspada_6);
+  fuzzy->addFuzzyRule(fuzzyRule6);
+
+   // Building FuzzyRule////////////////////////////////////////////////////////////////// 7
+   
   
   }
