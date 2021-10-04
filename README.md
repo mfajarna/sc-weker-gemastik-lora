@@ -1,4 +1,4 @@
-# sc-weker-gemsatik-lora
+# sc-weker-gemastik-lora
 
 
 *** Created by MFAJARNA 
