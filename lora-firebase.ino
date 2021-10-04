@@ -347,40 +347,52 @@ else
 
  // Status Kebencanaan
 
-if (soilA >= batas_kelembapan && kemiringan >= batas_kemiringan) {
-   Status = "bahaya";
-  } else if (pergeseran_tanah >= batas_pergeseran2 && soilA >= batas_kelembapan && kemiringan >= batas_kemiringan) {
-    Status = "bahaya";
-  } else if (pergeseran_tanah >= batas_pergeseran2 && soilA < batas_kelembapan && kemiringan < batas_kemiringan) {
-    Status = "bahaya";
-  } else if (pergeseran_tanah < batas_pergeseran2 && soilA < batas_kelembapan && kemiringan >= batas_kemiringan) {
-    Status = "bahaya";
-  } else if (pergeseran_tanah >= batas_pergeseran2 && soilA < batas_kelembapan && kemiringan >= batas_kemiringan) {
-    Status = "bahaya";
-  } else if (pergeseran_tanah >= batas_pergeseran1 && soilA < batas_kelembapan && kemiringan < batas_kemiringan) {
-    Status = "waspada";
-  } else if (pergeseran_tanah >= batas_pergeseran1 && soilA >= batas_kelembapan && kemiringan < batas_kemiringan) {
-    Status = "waspada";
-  } else if (pergeseran_tanah < batas_pergeseran1 && soilA >= batas_kelembapan && kemiringan < batas_kemiringan) {
-    Status = "waspada";
-  } else if (pergeseran_tanah < batas_pergeseran2 && soilA < batas_kelembapan && kemiringan >= batas_kemiringan) {
-    Status = "waspada";
-  }  else if (pergeseran_tanah < batas_pergeseran1 && soilA < batas_kelembapan && kemiringan < batas_kemiringan) {
-    Status = "aman";
-  } else if (pergeseran_tanah < batas_pergeseran1 && soilA > batas_kelembapan && kemiringan < batas_kemiringan) {
-    Status = "aman";
-  } else{
-    Status = "waspada";
-  }
-  Serial.print("Status     : ");
-  Serial.println(Status);
+//if (soilA >= batas_kelembapan && kemiringan >= batas_kemiringan) {
+//   Status = "bahaya";
+//  } else if (pergeseran_tanah >= batas_pergeseran2 && soilA >= batas_kelembapan && kemiringan >= batas_kemiringan) {
+//    Status = "bahaya";
+//  } else if (pergeseran_tanah >= batas_pergeseran2 && soilA < batas_kelembapan && kemiringan < batas_kemiringan) {
+//    Status = "bahaya";
+//  } else if (pergeseran_tanah < batas_pergeseran2 && soilA < batas_kelembapan && kemiringan >= batas_kemiringan) {
+//    Status = "bahaya";
+//  } else if (pergeseran_tanah >= batas_pergeseran2 && soilA < batas_kelembapan && kemiringan >= batas_kemiringan) {
+//    Status = "bahaya";
+//  } else if (pergeseran_tanah >= batas_pergeseran1 && soilA < batas_kelembapan && kemiringan < batas_kemiringan) {
+//    Status = "waspada";
+//  } else if (pergeseran_tanah >= batas_pergeseran1 && soilA >= batas_kelembapan && kemiringan < batas_kemiringan) {
+//    Status = "waspada";
+//  } else if (pergeseran_tanah < batas_pergeseran1 && soilA >= batas_kelembapan && kemiringan < batas_kemiringan) {
+//    Status = "waspada";
+//  } else if (pergeseran_tanah < batas_pergeseran2 && soilA < batas_kelembapan && kemiringan >= batas_kemiringan) {
+//    Status = "waspada";
+//  }  else if (pergeseran_tanah < batas_pergeseran1 && soilA < batas_kelembapan && kemiringan < batas_kemiringan) {
+//    Status = "aman";
+//  } else if (pergeseran_tanah < batas_pergeseran1 && soilA > batas_kelembapan && kemiringan < batas_kemiringan) {
+//    Status = "aman";
+//  } else{
+//    Status = "waspada";
+//  }
+//  Serial.print("Status     : ");
+//  Serial.println(Status);
+//
+//  if(Status != "aman")
+//  {
+//      Firebase.setString("Perangkat1/status", Status);
+//  }
+//  
 
-  if(Status != "aman")
-  {
-      Firebase.setString("Perangkat1/status", Status);
-  }
+  fuzzy->setInput(1,kemiringan);
+  fuzzy->setInput(2,soilA);
+  fuzzy->setInput(3,pergeseran_tanah);
+  fuzzy->setInput(4,dailyRain);
+  fuzzy->fuzzify();
+
+  Status = fuzzy->defuzzify(1);
+
+  Serial.println("Status Kebencaan", Status);
+
+  Firebase.setString("Perangkat1/status", Status);
   
-
 
 
 // Input for fuzzy
