@@ -10,8 +10,7 @@
 #include "RTClib.h"
 #include <Fuzzy.h>
 
-#define FIREBASE_HOST "mitigasi-8e083-default-rtdb.firebaseio.com/"
-#define FIREBASE_AUTH "k1GYmcDzeZW76OOEW4NjV8nZkQlQTfugEzgoDmUk"
+
 //#define WIFI_SSID "iPhone 6"
 //#define WIFI_PASSWORD "qwertyuiop"
 
@@ -255,22 +254,10 @@ void setup() {
   pinMode(raindigital,INPUT);
   pinMode(swPin, INPUT);
   pinMode(RainPin, INPUT);
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-  Serial.print("Connecting to Wi-Fi");
-  while (WiFi.status() != WL_CONNECTED)
-  {
-    Serial.print(".");
-    delay(300);
-  }
+
   Serial.println();
-  Serial.print("Connected with IP: ");
-  Serial.println(WiFi.localIP());
+
   Serial.println();
-  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
-  Firebase.setString("Perangkat1/engine","1");
-  Firebase.setString("maps/lokasi/alat1/Latitude", latitude);
-  Firebase.setString("maps/lokasi/alat1/Longitude", longitude);
-  while (!Serial);
 
 //  Serial.println("LoRa Sender");
 //
